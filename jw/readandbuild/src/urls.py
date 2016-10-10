@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+url(r'^$', 'posts.views.index'),
     url(r'^admin/', admin.site.urls),
     url(r'^posts/', include("posts.urls"))
     #url(r'^posts/$', "{app_name}.views.{function_name}")
