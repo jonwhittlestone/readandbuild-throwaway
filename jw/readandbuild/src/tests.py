@@ -12,8 +12,8 @@ class PostTestCase(LiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def test_i_see_posts(self):
-        home_page = self.browser.get(self.live_server_url + '/posts/')
+    def test_i_see_posts_on_index_page(self):
+        home_page = self.browser.get(self.live_server_url + '/')
 
         header = self.browser.find_element_by_css_selector('h1')
         self.assertEqual('Welcome', header.text)
