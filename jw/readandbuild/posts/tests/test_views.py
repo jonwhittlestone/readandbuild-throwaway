@@ -1,5 +1,5 @@
 from django.test import TestCase, RequestFactory
-from posts.views import index
+from posts.views import post_list
 
 
 class IndexViewTestCase(TestCase):
@@ -12,5 +12,7 @@ class IndexViewTestCase(TestCase):
         the correct template
         """
         request = self.factory.get('/')
-        response = index(request)
-        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('posts/list.html'):
+            response = post_list(request)
+            self.assertEqual(response.status_code, 200)
+

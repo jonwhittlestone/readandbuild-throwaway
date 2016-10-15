@@ -13,7 +13,9 @@ def post_detail(request): # read
     return HttpResponse("<h1>Welcome</h1><p>readandbuild.howapped.com</p><p>Delete</p>");
 
 def post_list(request):
-    return HttpResponse("<h1>Welcome</h1><p>readandbuild.howapped.com</p><p>List</p>");
+    return render(request, "posts/list.html",{})
+    #return HttpResponse("<h1>Welcome</h1><p>readandbuild.howapped.com</p><p>List</p>");
+
 
 def post_update(request):
     return HttpResponse("<h1>Welcome</h1><p>readandbuild.howapped.com</p><p>Update</p>");
