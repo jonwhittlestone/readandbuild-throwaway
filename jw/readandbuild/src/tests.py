@@ -16,7 +16,7 @@ class PostTestCase(LiveServerTestCase):
         home_page = self.browser.get(self.live_server_url + '/')
 
         header = self.browser.find_element_by_css_selector('h1')
-        self.assertEqual('Welcome', header.text)
+        self.assertEqual('Welcome', header.text, 'I can see Welcome on home page')
 
         #logger.error('')
         #logger.error(">> " + self.live_server_url + '/posts')
