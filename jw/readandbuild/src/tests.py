@@ -14,7 +14,7 @@ class PostTestCase(LiveServerTestCase):
                 - test url for homepage
                 - I can see more than one blog entry on the home page
             - Staff can create add post content
-            - A create blog post page with input elements
+            - A post can have an image associated with it
             - The create blog post page is behind auth
             - A functional test for creating with publish date
             - A functional test for draft state
