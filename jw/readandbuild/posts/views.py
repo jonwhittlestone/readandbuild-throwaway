@@ -1,11 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from .models import Post
 # Create your views here.
 
 def post_list(request):
-    return render(request, "posts/list.html",{})
-    #return HttpResponse("<h1>Welcome</h1><p>readandbuild.howapped.com</p><p>List</p>");
+
+    queryset = Post.objects.active()
+    context = {
+        "object_list": queryset
+    }
+    return render(request, "posts/list.html",context)
 
 def post_create(request):
     return render(request, "posts/create.html",{})

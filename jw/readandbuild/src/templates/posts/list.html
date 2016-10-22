@@ -7,7 +7,21 @@
 
     <h1>Welcome</h1>
     <p>readandbuild.howapped.com</p>
-    <p>List</p>
+    <hr>
+    <div class="container">
+        {% for obj in object_list %}
+        <div class="post">
+            <div class="title">
+                <a href="">{{ obj.title }}</a>
+            </div>
+            <div class="content">
+                {{obj.content}}
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+
 
 </body>
 </html>
