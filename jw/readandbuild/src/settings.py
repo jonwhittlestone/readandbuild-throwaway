@@ -54,6 +54,8 @@ MIDDLEWARE_CLASSES = [
 ROOT_URLCONF = 'src.urls'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 
+TEST_RUNNER = 'rainbowtests.test.runner.RainbowDiscoverRunner'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

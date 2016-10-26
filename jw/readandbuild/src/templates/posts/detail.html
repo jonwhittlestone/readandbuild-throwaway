@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ReadAndBuild - HowApped</title>
+</head>
+<body>
+
+    <p>readandbuild.howapped.com</p>
+    <div class="container">
+        {% if instance.image %}
+        <img src="{{instance.image.url}}" class='img-responsive'>
+        {% endif %}
+        <h1>{{instance.title}}</h1>
+        <div class="content">
+            {{instance.content}}
+        </div>
+    </div>
+
+</body>
+</html>
