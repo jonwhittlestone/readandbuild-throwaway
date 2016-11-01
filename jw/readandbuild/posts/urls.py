@@ -25,7 +25,7 @@ from .views import (
 
 urlpatterns = [
     url(r'^create/$', post_create),
-    url(r'^(?P<id>\d+)/$', post_detail, name='detail'),
+    url(r'^(?P<slug>[\w-]+)/$', post_detail, name='posts_detail'),
     url(r'^update/$', post_update),
     url(r'^delete/$', post_delete)
 

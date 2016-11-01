@@ -14,8 +14,8 @@ def post_list(request):
 def post_create(request):
     return render(request, "posts/create.html",{})
 
-def post_detail(request, id = None): # read
-    instance = get_object_or_404(Post, id=id)
+def post_detail(request, slug = None): # read
+    instance = get_object_or_404(Post, slug=slug)
     context = {
         "instance": instance
     }

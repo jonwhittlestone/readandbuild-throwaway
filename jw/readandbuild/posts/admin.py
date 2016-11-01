@@ -8,6 +8,8 @@ class PostModelAdmin(admin.ModelAdmin):
     list_display = ["title", "timestamp", "updated"]
     list_display_links = ["title"]
     search_fields = ["title", "content"]
+
+    exclude = ('slug',)
     class Meta:
         model = Post
 

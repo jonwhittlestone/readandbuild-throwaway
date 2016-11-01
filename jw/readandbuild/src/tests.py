@@ -20,12 +20,9 @@ class BaseTestCase(LiveServerTestCase):
                 - I can see more than one blog entry on the home page
             - Staff can create add post content
             - A post can have an image associated with it
-            - A functional test for creating with publish date
             - A functional test for post_detail with slug (model test)
             - A functional test for edit button so an auth user to edit post
             - A functional test for draft state
-            - content and title search
-            - Pagination
     """
 
     # pdb.set_trace()
@@ -87,8 +84,10 @@ class BaseTestCase(LiveServerTestCase):
 
     def user_view_post_detail(self, post):
 
-        pk = 1
-        self.browser.get(self.live_server_url + '/posts/' + str(pk))
+        slug = self.get_recent_post_slug()
+
+        self.browser.get(self.live_server_url + '/posts/' + slug)
+        #pdb.set_trace()
         # can i see heading
         heading = self.browser.find_element_by_css_selector('h1')
         self.assertEqual(post['title'], heading.text,
@@ -106,12 +105,12 @@ class BaseTestCase(LiveServerTestCase):
                       'I could not see w1408 in the image src attribute')
 
 
-    def get_recent_post_pk(self):
+    def get_recent_post_slug(self):
         """
-        gets most recent post id
+        gets most recent post slug
         :return:
         """
-
+        return 'first-post'
         return Post.objects.order_by('-id')[0]
 
 
@@ -143,8 +142,17 @@ class UserTestCase(BaseTestCase):
 
         self.assertEqual(post_title_links[1].text.strip(), self.post1['title'])
 
-    # Todo. user_view_post_detail_with_slug
-    def test_user_view_post_detail_with_slug(self, post):
+
+    # Todo. Test: Authenticated user to edit post
+    def test_authenticated_user_can_see_click_edit_button_to_edit_post(self):
+        pass
+
+    # Todo. Unauthenticted user cannot edit post
+    def test_unauthenticated_user_cannot_edit_post(self):
+        pass
+
+    # Todo. Unauthenticated user cannot see post in draft state
+    def test_unauthenticated_user_cannot_view_post_in_draft_state(self):
         pass
 
 class StaffTestCase(BaseTestCase):
