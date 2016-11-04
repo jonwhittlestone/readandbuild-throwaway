@@ -13,6 +13,11 @@
         <h1>{{instance.title}}</h1>
         <div class="content">
             {{instance.content}}
+            {% if request.user.is_authenticated %}
+            <div class="edit-post">
+                <button disabled>Edit Post</button>
+            </div>
+            {% endif %}
         </div>
     </div>
 
